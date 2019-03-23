@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+	{% if error %}
+		<div class="alert alert-danger">{{ error }}</div>
+	{% endif %}
+	<h1 class="h3 mb-3 font-weight-normal">New Target</h1>
+	<form action="{{ handler.dashboard.post_newTarget }}" method="POST" autocomplete="off">$CSRF$
+		<div class="mb-3">
+			<label for="name">Name</label>
+			<div class="input-group">
+				<input type="text" class="form-control" id="name" name="name" required>
+			</div>
+		</div>
+		<button class="btn btn-primary btn-block" type="submit">Create</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+	{% if error %}
+		<div class="alert alert-danger">{{ error }}</div>
+	{% endif %}
+	<div class="col-md-4 order-md-1">
+		<h1 class="h3 mb-3 font-weight-normal">Register</h1>
+		<form action="{{ handler.auth.post_register }}" method="POST">$CSRF$
+			<div class="mb-3">
+				<label for="username">Username</label>
+				<div class="input-group">
+					<input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="email">Email</label>
+				<div class="input-group">
+					<input type="email" class="form-control" id="email" name="email" placeholder="email@address" required>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="password">Password</label>
+				<div class="input-group">
+					<input type="password" class="form-control" id="password" name="password" placeholder="password" required minlength="8">
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="password2">Repeat password</label>
+				<div class="input-group">
+					<input type="password" class="form-control" id="password2" name="password2" placeholder="password again" required minlength="8">
+				</div>
+			</div>
+			<button class="btn btn-primary btn-block" type="submit">Register</button>
+		</form>
+	</div>
+{% endblock %}

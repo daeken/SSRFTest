@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ name }}</h1>
+<p>Hit Link: <input type="text" value="http://ssrftest.com/x/{{ link }}" size="48"></p>
+<p>IFrame: <input type="text" value="<iframe src=&quot;http://ssrftest.com/x/{{ link }}&quot;></iframe>" size="48"></p>
+<p>Script: <input type="text" value="<script src=&quot;http://ssrftest.com/x/{{ link }}.js&quot;></script>" size="48"></p>
+<p>Image: <input type="text" value="<img src=&quot;http://ssrftest.com/x/{{ link }}.gif&quot;>" size="48"></p>
+{% if len(logs) %}
+<h1>Log Messages</h1>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr><th scope="col">Date</th><th scope="col">Message</th></tr>
+		</thead>
+		<tbody>
+			{% for (at, message) in logs %}
+			<tr><td>{{ at }}</td><td><pre>{{ message }}</pre></td></tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
+{% if len(hits) %}
+<h1>Hits</h1>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr><th scope="col">Date</th><th scope="col">Request</th></tr>
+		</thead>
+		<tbody>
+			{% for (at, req) in hits %}
+			<tr><td>{{ at }}</td><td><pre>{{ req }}</pre></td></tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
+{% endblock %}

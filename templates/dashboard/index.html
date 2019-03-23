@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<a href="{{ handler.dashboard.get_newTarget }}">New Target</a>
+{% if len(targets) %}
+	<table class="table">
+		<thead class="thead-dark">
+			<tr><th scope="col">Name</th><th scope="col">Last Hit</th></tr>
+		</thead>
+		<tbody>
+			{% for (link, name, lastHit) in targets %}
+			<tr><td><a href="{{ handler.target.get_index.url(link=link) }}">{{ name }}</a></td><td>{{ lastHit }}</td></tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
+{% endblock %}

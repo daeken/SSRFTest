@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: dbpassword
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  web:
+    privileged: true
+    image: ssrfweb
+    restart: always
+    ports:
+      - 80:80
+
+volumes:
+  db-data:
