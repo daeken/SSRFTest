@@ -28,7 +28,6 @@ done
 shift $((OPTIND-1))
 
 if [ -z "${h}" ]; then
-    echo "asd"
     usage
 fi
 
