@@ -11,7 +11,7 @@ MarkupSafe==1.0
 pycparser==2.18
 six==1.11.0
 SQLAlchemy==1.2.10
-urllib3==1.23
+urllib3==1.26.5
 Werkzeug==0.14.1
 psycopg2
 flask-cors
